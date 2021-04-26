@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .inteiro{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .colunaCabecalho{
+            width: 100px;
+            margin-right:0;
+            padding: 10px;
+            font-weight: 600;
+        }
+        .coluna{
+            width: 100px;
+            margin-right:0;
+            padding: 10px;
+        }
+        .cabecalhoTabela{
+            
+            height: 40px;
+            margin: 0;
+            padding: 10px;
+        }
+        .botao{
+            width: 120px;
+            height: 35px;
+            margin-top: 20px;
+        }
+        .tabela{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .linha:nth-child(odd){
+            background-color: rgb(231, 231, 231);
+        }
+
+    </style>
+    
+</head>
+<body>
+    <div class="inteiro">
+        <div class="cabecalho">
+            <h1>Dados de Alunos</h1>
+        </div>
+        <table class="tabelaCabecalho">
+            <tr class="cabecalhoTabela">
+                <td class="colunaCabecalho">
+                        Nome
+                </td>
+                <td class="colunaCabecalho">
+                        Nota 1
+                </td>
+                <td class="colunaCabecalho">
+                        Nota 2
+                </td>
+                <td class="colunaCabecalho">
+                        Nota 3
+                 </td>
+                <td class="colunaCabecalho">
+                        Nota 4
+                </td>
+                <td class="colunaCabecalho">
+                        Media
+                </td>
+            </tr>
+        </table>
+        <div class="tabela">
+            <!-- <div class="vaiAqui"> 
+            </div> -->
+        </div>
+        <input type="submit" onclick="incluirAluno()" value="Incluir" class="botao">
+    </div>
+
+    <script>
+        
+
+        function addLinha(nome, n1, n2, n3, n4){
+            let media = ((parseInt(n1)+parseInt(n2)+parseInt(n3)+parseInt(n4))/4);
+            const criarTabela = document.createElement("tr");
+            const elementoPosterior = document.querySelector(".vaiAqui");
+            const elementoPai = document.querySelector(".tabela");
+ 
+            criarTabela.className = "linha";
+            criarTabela.innerHTML = `<td class="coluna">${nome}</td>
+            <td class="coluna">${n1}</td>
+            <td class="coluna">${n2}</td>
+            <td class="coluna">${n3}</td>
+            <td class="coluna">${n4}</td>
+            <td class="coluna">${media}</td>`;
+
+             elementoPai.appendChild(criarTabela);
+           // elementoPai.insertBefore(criarTabela, elementoPosterior);
+        }
+
+        function incluirAluno(){
+           var nome =  prompt("Entre com o nome do Aluno");
+         
+           var nota1 =  prompt("Entre com a primeira nota");
+        
+           var nota2 =  prompt("Entre com a segunda nota");
+         
+           var nota3 =  prompt("Entre com a terceira nota");
+          
+           var nota4 =  prompt("Entre com a quarta nota");
+    
+        addLinha(nome, nota1, nota2, nota3, nota4);
+        }
+
+        addLinha("Naira", 4, 3, 6,4);
+        addLinha("Sergio", 1, 2, 10,8);
+        addLinha("Yuna", 9, 1, 6,7);
+    </script>
+</body>
+</html>

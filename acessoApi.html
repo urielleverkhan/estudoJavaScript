@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Javascript</title>
+
+    <script type="text/javascript" src="./jquery-5.5.1-min.js"></script>
+
+    <style>
+                          
+    </style>
+    <script>
+       
+        let resultado = new Object();
+            fetch("https://springboot-1617123235291.azurewebsites.net/users/webflux", {
+                method: 'GET',
+                headers: {
+            'Content-Type': 'application/json'
+        },
+               mode: 'cors',
+               cache: 'default'})
+                .then((resposta) =>{resposta.json()
+                console.log(resposta)})
+                .then((resultadoJson) => {
+                    
+                   
+                    console.log(resultadoJson);
+                 
+                })
+                .catch(err => {
+                    console.log("Erro ao se logar: " + err);
+                })
+                
+            
+            
+           
+    
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Curso javascript</h1>
+    </div>
+      
+    
+</body>
+</html>

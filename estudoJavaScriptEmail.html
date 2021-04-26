@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Javascript</title>
+
+    <script type="text/javascript" src="./jquery-5.5.1-min.js"></script>
+
+    <style>
+                          
+    </style>
+    <script>
+         
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Curso javascript</h1>
+        
+        <div class="botaoClass">
+            <input type="checkbox" class="checkboxInput" onChange="habilitar()">
+            <input type="text" class="inputText">
+            <input type="submit" value="Enviar" disabled onclick="mostra()" class="botao" >
+            <span class="receberInformacoes"></span>
+        </div>
+    
+    </div>
+      
+    <script>
+        const inputText = document.querySelector(".inputText");
+       
+        let botaoInput = document.querySelector(".botao");
+        let receber = document.querySelector(".receberInformacoes");
+
+        function mostra(){
+            let textoPego = inputText.value;
+            receber.innerHTML = `<p>Cadastrado ${textoPego}</p>`;
+        }
+
+        function habilitar(){
+            const checkboxVar = document.querySelector(".checkboxInput");
+            let checado = checkboxVar.checked;
+            console.log(checado);
+            // if(checado){
+            //     botaoInput.disabled = false;
+            // } else{
+            //     botaoInput.disabled = true;
+            // }
+
+            botaoInput.disabled = !checado;
+        }
+        
+        
+        
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Eventos</h1>
+        <h3 class="textoH1"></h3>
+        <input type="text" class="inputTexto" value="digite seu texto">
+        <input type="submit" class="botao">
+    </div>
+    <div class=container>
+        <h1>Delegacao de eventos</h1>
+        <div class="container2">
+            <button>botao 1</button>
+            <button>botao 2</button>
+            <button>botao 3</button>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.querySelector(".botao");
+        const texto = document.querySelector(".textoH1");
+        const pr = document.createElement("p");
+
+       btn.addEventListener("click", imprimeTexto);
+      
+        function imprimeTexto(){
+            pr.textContent = document.querySelector(".inputTexto").value;
+            texto.appendChild(pr);   
+        }
+
+        const container2 = document.querySelector(".container2");
+        const btns = document.querySelectorAll(".container2 button");
+
+        // [...btns].forEach((btn, i) =>{
+        //     btn.addEventListener("click", function(e){
+        //     e.stopPropagation();
+        //     console.log(e.target)
+        //     alert(`btn - ${++i} + ${e.target}`);
+        //     })
+        // })
+
+        container2.addEventListener("click", function(e){
+            if(e.target.nodeName === "BUTTON"){
+            console.log(e.target);
+            }
+        })
+    </script>
+</body>
+</html>

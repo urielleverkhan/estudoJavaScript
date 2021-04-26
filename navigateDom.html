@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Test Dom</h1>
+    <!--beforebegin-->
+    <div class="container2">
+        <!--afterbegin-->
+        <p>Paragrafo 1</p>
+        <!--afterbegin-->
+        <p>Paragrafo 2</p>
+        <p>Paragrafo 3</p>
+        <!--beforeend-->
+    </div>
+<!--afterend-->
+    <div class="container">
+        <p>Lorem <a href="#">Link</a>.</p>
+        <p>teste 2</p>
+
+        <h2>Lista</h2>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2
+                <ul>
+                    <li>Item 2.a</li>
+                    <li>Item 2.b</li>
+                    <li>Item 2.c</li>
+                </ul>
+            </li>
+            <li>item <a href="#">link</a></li>
+        </ul>
+    </div>
+    <script>
+        const title = document.createElement("h1");
+        const atributo = document.createAttribute("id");
+        atributo.value = "title1";
+        title.setAttributeNode(atributo);
+
+        title.setAttribute("title", "UmTitulo");
+        title.setAttribute("style", "color: red");
+
+        const text = document.createTextNode("Criar nós no dom");
+
+        title.appendChild(text);
+
+        title.textContent = "texto do textContent";
+
+        console.log(title);
+
+        //document.querySelector("ul").prepend(title);
+
+
+        document.querySelector(".container").insertBefore(title, document.querySelector(".container").firstChild)
+
+        document.querySelector(".container").before("texto com before")
+
+        const container = document.querySelector(".container2");
+
+        container.insertAdjacentHTML("beforebegin", "<b>TEXTO INSERIDO BB</>")
+            container.insertAdjacentHTML("afterbegin", "<b>TEXTO INSERIDO AG </>")
+                container.insertAdjacentHTML("beforeend", "<b>TEXTO INSERIDO BE </>")
+                    container.insertAdjacentHTML("afterend", "<b>TEXTO INSERIDO AE </>")
+
+                        container.remove();
+
+                        //title.parentElement.removeChild(title);
+
+        const tituloh1 = document.querySelector("h1");
+      
+        tituloh1.parentElement.replaceChild(title.cloneNode(true), tituloh1)
+    </script>
+</body>
+</html>

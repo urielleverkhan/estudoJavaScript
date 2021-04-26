@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Javascript</title>
+
+    <script type="text/javascript" src="./jquery-5.5.1-min.js"></script>
+
+    <style>
+                          
+    </style>
+    <script>
+           
+
+            // const produto = {
+            //     nome: "Caneta",
+            //     qtd: 10,
+            //     comprar: function(n){
+            //         console.log(this);
+            //             if(n > this.qtd){
+            //                 return "quantidade não disponivel";
+            //             }
+            //             this.qtd -= n;
+            //     }
+            // }
+
+            // const produto = {
+            //     nome: "Caneta",
+            //     qtd: 10,
+            //     comprar(n){
+            //         console.log(this);
+            //             if(n > this.qtd){
+            //                 return "quantidade não disponivel";
+            //             }
+            //             this.qtd -= n;
+            //     },
+
+            //     teste2: function() {
+            //     console.log("funcao");
+            // }
+
+            // }
+            // produto.comprar(3);
+            // console.log(produto);
+
+            // produto.comprar(13);
+            // console.log(produto);
+
+            // function teste1() {
+            //     console.log("funcao");
+            // }
+
+            
+            // teste3: () => {
+            //     console.log("funcao");
+            // }
+
+            // let arrayObjetos = [{numero: 34, casa: "decimal"}, 
+            // {numero: 0, casa: "binario"}, 
+            // {numero:"f", casa:"Hexadecimal"}]
+
+
+            // for(let i = 0; i < arrayObjetos.length; i++){
+            //     console.log(`Numero: ${arrayObjetos[i].numero} Casa: ${arrayObjetos[i].casa}`)
+            // }
+            // console.log(arrayObjetos)
+
+            // function sum(n1, n2){
+            //     return n1 + n2;
+            // }
+
+            // document.write(sum(2, 8));
+         
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Curso javascript</h1>
+        <div class="divDesaparece">
+            <h3>Ixi vai sumir</h3>
+        </div>    
+        <div class="botao">
+            <input type="submit" onclick="someBotao();" value="Sumir" class="botaoInput" >
+        </div>
+        <div class="botao2">
+            <input type="submit" onclick="criarElemento();" value="Criar" class="botaoInput2" >
+        </div>
+    </div>
+      
+    <script>
+              
+                    let divDesaparece = document.querySelector(".divDesaparece");
+                    let controle = 0;
+                    let botao = document.querySelector(".botaoInput");
+                    let botao2 = document.querySelector(".botao2");
+                    let botaoInput2 = document.querySelector(".botaoInput2")
+                    const elementoCriar = document.createElement("div");
+                    elementoCriar.className = "elementoCriado";
+                    let texto = "nossavei";
+
+                    function someBotao(){
+                        if(controle == 0){
+                            controle = 1;
+                            divDesaparece.style.display = "none";
+                            botao.setAttribute("value", "Aparecer");
+                        }else{
+                            controle = 0;
+                            divDesaparece.style.display = "flex";
+                            botao.setAttribute("value", "Sumir");
+                        }
+                    }
+
+                    function criarElemento(){
+                        elementoCriar.innerHTML = `<p>ACHOUUU!!!! <b>${texto}</b></p>`;
+                        botao2.insertBefore(elementoCriar, botaoInput2);
+                    }
+                    
+               
+    </script>
+    
+</body>
+</html>
